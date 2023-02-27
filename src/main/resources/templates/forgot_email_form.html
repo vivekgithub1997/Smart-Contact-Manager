@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Forgot Email Page</title>
+</head>
+<body>
+	<section>
+
+
+		<div class="container">
+		
+            <div class="row ">
+               <div class="col-md-6 offset-md-3">
+                  <div class="my-card mt-5">
+                  
+                  	<h3 class="text-center mt-2">Your Registered Email</h3>
+                  	
+                  	<div th:if="${session.message}"  class="alert alert-danger" role="alert">
+                       
+                       <p th:text="${session.message}"></p>
+                       
+                       <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                       
+                      </div>
+                  
+                    <form th:action="@{/send-otp}" method="post">
+                    
+                    <div class="form-group">
+                    
+                    <input type="email" placeholder="Enter Your Registerd Email Id" 
+                    required="required" name="email" class="form-control mt-3"/>
+                    
+                    </div>
+                    
+                    <div class="container text-center mb-3">
+                    
+                    <button type="submit" class="btn btn-warning">Send OTP</button>
+                    
+                    </div>
+                    
+                    
+                    </form>
+                  
+                  </div>
+               </div>
+            </div>
+
+		</div>
+
+
+	</section>
+</body>
+</html>

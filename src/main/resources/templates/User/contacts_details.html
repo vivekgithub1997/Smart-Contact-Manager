@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com"  
+th:replace="User/base::layout(~{::section})"  >
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+	<section>
+	    <div class="card mr-3 ml-3" th:if="${contact}">
+	    
+	    <div class="ml-3 mt-3" >
+	       <a th:href="@{/user/show-contact/0}" style="color: #0CBAC0;"><i class="fa-solid fa-circle-left fa-2x"></i></a>
+	       
+	    </div>
+	    
+	
+	    
+	       <div class="card-body">
+	           <div class="container text-center ">
+	           
+	            <img style="height: 80px;width: 80px;" class="user_img" th:src="@{'/image/'+${contact.image}}" alt="userImg" />
+	          
+	          
+	           <div class="mt-2"><h3><span th:text="${contact.name}"></span></h3></div>
+	           
+ <table class="table mt-3">
+
+
+  
+  <tbody>
+  
+    
+     <tr>
+      <td><i class="fa-solid fa-id-badge mr-2"></i><span class="ml-2">ID</span></td>
+      <th><span th:text="${contact.cId}"></span></th>
+    </tr>
+    
+  
+    <tr>
+      <td><i class="fa-solid fa-phone"></i><span class="ml-2">Phone</span></td>
+      <th><span th:text="${contact.phone}"></span></th>
+    </tr>
+    
+    <tr>
+      <td><i class="fa-solid fa-at"></i><span class="ml-2">Email</span></td>
+      <th><span th:text="${contact.email}"></span></th>
+    </tr>
+    
+     <tr>
+      <td><i class="fa-solid fa-briefcase"></i><span class="ml-2">Work</span></td>
+      <th><span th:text="${contact.work}"></span></th>
+    </tr>
+   
+  
+    
+  
+  </tbody>
+  
+  
+  
+</table>
+    
+    <hr>  
+      
+     <div class="desc mt-2">
+         <th:block th:utext="${contact.description}"></th:block>
+     </div>
+	 
+	   <!-- <div class="dele mr-2 mt-3 ">
+	     <a href="" style="color: #F35353;" class="mr-1"><i class="fa-solid fa-user-minus fa-lg"></i></a>
+         <a href="" style="color: #5CE35C;"><i class="fa-solid fa-pen fa-lg"></i></a>
+	   </div>  -->      
+	          
+	          
+	   <div class="d-flex justify-content-center">
+      
+            <div class="mr-2">
+                <button href="#" th:onclick="|deleteContact(${contact.cId})|" style="color: #F35353;border: none;" ><i class="fa-solid fa-user-minus"></i></button>
+            </div>
+          
+             <form method="post" th:action="@{'/user/update/'+${contact.cId}}">
+        
+              <button type="submit"  style="color: #5CE35C; border: none;"><i class="fa-solid fa-pen"></i></button>
+        
+             </form>
+         
+        </div>   
+	          
+	          
+	          
+	               
+	           </div>
+	           
+	   
+	           
+	           
+	       </div>
+	      
+	    </div>
+	    
+	    <div class=" col-md-10 offset-md-1
+	    text-center bg-danger  p-3 text-white" th:unless="${contact}">
+	       <h3>Sorry You Cann't Access this Contacts </h3>
+	    </div>
+	    
+	</section>
+</body>
+</html>

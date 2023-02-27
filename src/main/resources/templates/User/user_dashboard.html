@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com"
+	th:replace="User/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>user_dashboard Page</title>
+</head>
+<body>
+
+	<section>
+		<div class="card mr-4 ml-3 mt-2">
+		   <div class="card-body text-center">
+	 	    
+		    <h3>Welcome : <span th:text="${user.name}"></span></h3> 
+		    
+		     <div th:if="${session.message}" class="container text-center">
+	        
+	            <div  th:classappend="${session.message.type}" 
+	                  class="alert" role="alert">
+                  <span th:text="${session.message.content}"></span>
+                </div>
+                 
+                <th:block th:text="${#session.removeAttribute('message')}"></th:block> 
+                 
+	        </div>
+		    
+		    
+		       <div class="container">
+		       
+		       
+		       
+		          <div class=" mt-4">
+		             <img th:src="@{/image/userprofileimg.jpg}" alt="" />
+		             
+		          </div>
+		          
+		          <a th:href="@{/user/add-contact}" class="btn btn-success btn-lg btn-block mt-4" role="button"
+		         aria-disabled="true">Start Save Your Contact Online Here...</a>
+		           
+		       </div>
+		       
+		        
+		       
+		   </div>
+		   
+		</div>
+	</section>
+
+
+</body>
+</html>
