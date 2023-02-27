@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     name: root
     password: root
-    url: jdbc:mysql://localhost:3306/contact_manager
+    url: jdbc:mysql://localhost:3306/contact
     username: root
   jpa:
     hibernate:
